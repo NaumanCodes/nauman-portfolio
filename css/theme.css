@@ -1,0 +1,25 @@
+/* Light Theme */
+:root {
+  --bg-color: #ffffff;       /* page background */
+  --text-color: #222222;     /* page text */
+  --accent-color: #ae7f18;   /* accent color */
+  --card-bg: #f9f9f9;        /* cards */
+  --border-color: #ddd;
+  --shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+  --navbar-bg: #ffffff;      /* navbar background */
+  --navbar-text: #000000;    /* navbar text */
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --bg-color: #121212;       /* page background */
+  --text-color: #e0e0e0;     /* page text */
+  --accent-color: #ae7f18;
+  --card-bg: #1e1e1e;
+  --border-color: #333;
+  --shadow: 0 4px 10px rgba(0,0,0,0.5);
+
+  --navbar-bg: #000000;      /* navbar background = pure black */
+  --navbar-text: #ffffff;    /* navbar text = white */
+}

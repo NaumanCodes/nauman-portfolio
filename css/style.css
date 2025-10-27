@@ -1,0 +1,1462 @@
+/* =========================================================
+   Global Base Styles
+========================================================= */
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+  padding-top: 80px; /* space for fixed navbar */
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   Header / Navbar
+========================================================= */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--navbar-bg);   /* changes with theme */
+  z-index: 1000;
+  box-shadow: none;               /* flat navbar */
+  transition: background-color 0.3s;
+}
+
+/* Navbar links, logo, and theme button colors */
+header .nav-links a,
+header .theme-btn img {
+  width: 40px;
+  height: 40px;
+  color: var(--navbar-text);      /* changes with theme */
+  transition: color 0.3s;
+}
+
+header .logo{
+  width: 60px;
+  height: 60px;
+  color: var(--navbar-text);      /* changes with theme */
+  transition: color 0.3s;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  font-size: 1.0rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000000; /* navbar links black */
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent-color); /* accent changes based on theme */
+}
+
+/* Theme Button */
+.theme-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 5px; 
+  font-size: 2rem;
+}
+
+
+.theme-btn i {
+  font-size: 30px;   /* controls icon size */
+  color: #ae7f18;    /* blue color */
+  transition: transform 0.3s, color 0.3s;
+}
+
+.theme-btn:hover i {
+  transform: scale(1.2);
+  color: #ae7f18;
+}
+
+.about__img {
+  width: 350px;    /* change this value as you like */
+  /*height: 250px;   /* optional — keeps it square */
+  object-fit: cover; /* keeps image from stretching */
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.about__data {
+  text-align: center;
+}
+
+.about__info {
+  display: flex;                     /* put divs side by side */
+  justify-content: center;           /* center them horizontally */
+  align-items: center;               /* align items vertically */
+  gap: 3rem;                         /* space between the 3 divs */
+  margin-top: 2rem;
+  text-align: center;                /* center text inside each */
+  margin-bottom: 50px;
+}
+
+/* Each info block */
+.about__info div {
+  background-color: var(--card-bg, #f9f9f9); /* optional background */
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);   /* light shadow for card effect */
+  transition: transform 0.3s ease;
+}
+
+.about__info div:hover {
+  transform: translateY(-5px); /* small hover effect */
+}
+
+/* Numbers (Titles) */
+.about__info-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-color, #007bff);
+  display: block;
+}
+
+/* Labels */
+.about__info-name {
+  font-size: 0.95rem;
+  color: var(--text-color, #333);
+  display: block;
+  line-height: 1.4;
+}
+
+/* Responsive stacking for mobile */
+@media (max-width: 768px) {
+  .about__info {
+    flex-direction: column;   /* stack vertically on small screens */
+    text-align: center;
+    gap: 1.5rem;
+  }
+}
+
+.about__container {
+  display: flex;                     /* enables side-by-side layout */
+  align-items: center;               /* vertically centers items */
+  justify-content: center;           /* centers content in the container */
+  gap: 3rem;                         /* space between image and text */
+  padding: 2rem 0;
+}
+
+.about__buttons a{
+  display: inline-block;
+  background: var(--accent-color);
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.event-carousel {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: var(--bg-color, #fafafa);
+}
+
+.carousel-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none; /* hide scrollbar for cleaner look */
+}
+
+.carousel-item {
+  flex: 0 0 300px;
+  scroll-snap-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.carousel-item p {
+  padding: 10px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.edu-item {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.edu-item p {
+  margin: 0;
+  padding: 0;
+}
+
+.exp-item {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* =========================================================
+   Sections
+========================================================= */
+
+section {
+  padding: 4rem 0;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+section p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* ========== Skills Section ========== */
+/* ========== Skills Section ========== */
+.skills {
+  margin: 40px auto;
+  max-width: 900px;
+  padding: 40px 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Mode */
+.skills {
+  background-color: #ffffff; /* PURE WHITE */
+  color: #222;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .skills {
+  background-color: #121212; /* deep black background */
+  color: #f5f5f5;
+}
+
+/* Title */
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  width: 100%;
+   /* adaptive underline */
+  padding-bottom: 5px;
+}
+
+/* Skill Categories */
+.skills-category {
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+/* Headings inside each category */
+.skills-category h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  color: inherit;
+}
+
+/* Text or paragraphs */
+.skills-category p {
+  margin: 5px 0 0;
+  color: inherit;
+  font-size: 0.95rem;
+}
+
+/* Skills List */
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skills-list li {
+  color: inherit;
+  margin: 6px 0;
+}
+
+/* Optional: subtle tag-style look */
+.skills-list li {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.05); /* light background for tags in light mode */
+  padding: 8px 14px;
+  border-radius: 8px;
+  margin: 6px;
+  transition: background 0.3s;
+}
+
+[data-theme="dark"] .skills-list li {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.skills-list li:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Section styling */
+.experience.section {
+  padding: 60px 20px;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+/* Timeline container */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* Central vertical line */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: #ccc;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+}
+
+/* Timeline items */
+.timeline-item {
+  padding: 20px 30px;
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  background-color: #ae7f18;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Left side */
+.timeline-item.left {
+  left: 0;
+}
+
+.timeline-item.left::before {
+  right: -10px;
+}
+
+/* Right side */
+.timeline-item.right {
+  left: 50%;
+}
+
+.timeline-item.right::before {
+  left: -10px;
+}
+
+/* Content box */
+.content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.content h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.content span {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* ====== PROJECTS SECTION STYLES ====== */
+
+/* General styles for the section */
+.projects.section {
+  /* Using a modern, clean font stack */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  padding: 60px 20px; /* Vertical and horizontal padding */
+  max-width: 1100px;  /* Constrains width for better readability */
+  margin: 0 auto;       /* Centers the section on the page */
+  color: #333;
+}
+
+/* Section header styles (Title and Subtitle) */
+.section-header {
+  text-align: center;
+  margin-bottom: 50px; /* Space below the header */
+}
+
+
+.section-subtitle {
+  font-size: 1.1rem; /* 18px */
+  color: #718096; /* Lighter grey */
+  margin: 0;
+}
+
+/* Core project item layout 
+  We use CSS Grid for an easy 2-column layout
+*/
+.project-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 40px; /* Space between the image and the text */
+  align-items: center; /* Vertically aligns image and text */
+  margin-bottom: 50px; /* Space between each project item */
+}
+
+/* Project image styling */
+.project-image img {
+  width: 100%; /* Makes image responsive */
+  height: auto;
+  border-radius: 8px; /* Soft rounded corners */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  border: 1px solid #e2e8f0; /* Light border, like the example */
+}
+
+/* Project details text content */
+.project-details h3 {
+  font-size: 1.75rem; /* 28px */
+  font-weight: 600;
+  color: #1a202c; /* Very dark blue */
+  margin: 0 0 15px 0;
+}
+
+.project-details p {
+  font-size: 1rem; /* 16px */
+  color: #4a5568; /* Softer grey for text */
+  line-height: 1.6; /* Improves readability */
+  margin: 0 0 25px 0;
+}
+
+/* Demo button styling */
+.project-demo-btn {
+  display: inline-block; /* Allows padding and margins */
+  background-color: #ae7f18; /* Light blue from example */
+  color: #ffffff; /* White text */
+  padding: 12px 28px;
+  text-decoration: none; /* Removes underline */
+  border-radius: 6px; /* Rounded button corners */
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease; /* Smooth hover effect */
+  box-shadow: 0 4px 6px rgba(56, 189, 248, 0.2);
+}
+
+.project-demo-btn:hover {
+  background-color: #ae7f18; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 6px 12px rgba(56, 189, 248, 0.3);
+}
+
+/* Light Mode */
+.experience {
+  background-color: #ffffff; /* PURE WHITE */
+  color: #222;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .experience {
+  background-color: #121212; /* deep black background */
+  color: #f5f5f5;
+}
+
+.publications-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 40px; /* Space between the image and the text */
+  align-items: center; /* Vertically aligns image and text */
+  margin-bottom: 50px; /* Space between each project item */
+}
+
+/* Project image styling */
+.publications-image img {
+  width: 60%;
+  height: 60%;
+  border-radius: 8px; /* Soft rounded corners */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  border: 1px solid #e2e8f0; /* Light border, like the example */
+}
+
+/* Project details text content */
+.publications-details h3 {
+  font-size: 1.75rem; /* 28px */
+  font-weight: 600;
+  color: #1a202c; /* Very dark blue */
+  margin: 0 0 15px 0;
+  margin-top: 50px;
+}
+
+.publications-details p {
+  font-size: 1rem; /* 16px */
+  color: #4a5568; /* Softer grey for text */
+  line-height: 1.6; /* Improves readability */
+  margin: 0 0 25px 0;
+}
+
+/* Demo button styling */
+.publications-demo-btn {
+  display: inline-block; /* Allows padding and margins */
+  background-color: #ae7f18; /* Light blue from example */
+  color: #ffffff; /* White text */
+  padding: 12px 28px;
+  text-decoration: none; /* Removes underline */
+  border-radius: 6px; /* Rounded button corners */
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease; /* Smooth hover effect */
+  box-shadow: 0 4px 6px rgba(56, 189, 248, 0.2);
+}
+
+.publications-demo-btn:hover {
+  background-color: #ae7f18; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 6px 12px rgba(56, 189, 248, 0.3);
+}
+
+/* ====== DARK MODE OVERRIDES (using [data-theme="dark"]) ====== */
+
+/* 1. SECTION BACKGROUND and default text color */
+/* Light Mode (Default) - Using your current projects background color */
+.projects.section {
+  background-color: #ffffff; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode - Match the deep black background and light text */
+[data-theme="dark"] .projects.section {
+  background-color: #121212; /* deep black background */
+  color: #f5f5f5;
+}
+
+/* 2. SECTION TITLE and PROJECT H3 (Headings) */
+/* Light Mode */
+
+.project-details h3 {
+  color: #1a202c; /* Very dark blue */
+  transition: color 0.3s ease;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .project-details h3 {
+  color: #ffffff; /* Pure white headings */
+}
+
+
+.publications.section {
+  background-color: #ffffff; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode - Match the deep black background and light text */
+[data-theme="dark"] .publications.section {
+  background-color: #121212; /* deep black background */
+  color: #f5f5f5;
+}
+
+/* 2. SECTION TITLE and PROJECT H3 (Headings) */
+/* Light Mode */
+
+.publications-details h3 {
+  color: #1a202c; /* Very dark blue */
+  transition: color 0.3s ease;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .publications-details h3 {
+  color: #ffffff; /* Pure white headings */
+}
+
+
+/* ====== RESPONSIVE STYLES ====== */
+
+/* For tablets and mobile phones */
+@media (max-width: 768px) {
+  .project-item {
+    /* Stacks the columns vertically */
+    grid-template-columns: 1fr; 
+    gap: 25px;
+  }
+  
+  /* On mobile, flip the order so image is on top */
+  .project-image {
+    order: 1; 
+  }
+  .project-details {
+    order: 2;
+  }
+}
+
+/* Styling for the overall section container */
+.achievements.section {
+  /* Use Flexbox to center the content horizontally */
+  display: flex;
+  flex-direction: column; /* Stack the title and the list vertically */
+  align-items: center;    /* Center all children (h2 and ul) horizontally */
+  text-align: center;     /* Ensures the fallback text aligns well */
+}
+
+
+
+/* 2. List Item Styling */
+.achievements-items {
+  /* This ensures the list itself is not 100% wide, but only as wide 
+     as its content, which is key for keeping items grouped centrally. */
+  width: auto;      
+  
+  /* Resetting default list styles */
+  list-style-type: disc; 
+  padding: 0; 
+  margin: 0;
+
+  /* Crucially, align the text inside the list to the left */
+  text-align: left; 
+  
+  /* Text appearance */
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #222;
+}
+
+/* Light Mode */
+.achievements-items {
+  background-color: #ffffff; /* PURE WHITE */
+  color: #222;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .achievements-items {
+  background-color: #121212; /* deep black background */
+  color: #f5f5f5;
+}
+
+.contact-p {
+  text-align: center;
+}
+
+.contact-links {
+  text-align: center;
+}
+
+/* =========================================================
+   Profile Image
+========================================================= */
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   Footer
+========================================================= */
+
+footer {
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border-color);
+  margin-top: 3rem;
+}
+
+/* =========================================================
+   Utility Classes
+========================================================= */
+
+.text-center {
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  background: var(--accent-color);
+  color: #fff;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #005fcc;
+}
+
+/* =========================================================
+   Scrollbar (Optional Aesthetic)
+========================================================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--bg-color);
+}
+
+
+/*hero*/
+
+/* Hero Section */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-color);
+  color: var(--text-color);
+  text-align: left;
+  padding: 2rem 0;
+}
+
+.hero-container {
+  display: flex;
+  flex-wrap: wrap; /* responsive for smaller screens */
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Left Side */
+.hero-left {
+  flex: 1 1 500px;
+}
+
+.hero-left h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-left .subtitle {
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.hero-left .description {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 10px; /* space between icons */
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  display: inline-block; /* prevents it from taking extra space */
+  width: auto;           /* fit content */
+  height: auto;
+  padding: 5px;          /* optional small clickable padding */
+  margin: 0 5px; 
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #4c3504;
+}
+
+.social-icons i {
+  font-size: 24px;       /* size of the icon */
+  pointer-events: none;  /* ensures click only works on <a>, not <i> */
+}
+
+/* Right Side: Profile Image */
+.hero-right {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.hero-right .profile-img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50% 50% 50% 50%; /* adjust these numbers to match your shape */
+}
+
+
+/* Call-to-action Button */
+.hero-left .btn {
+  display: inline-block;
+  background: var(--accent-color);
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.hero-left .btn i {
+  margin-left: 0.5rem;
+}
+
+.hero-left .btn:hover {
+  background: #4c3504;
+}
+
+/* Scroll Down Indicator */
+.scroll-down {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--text-color);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    
+    /* FIX: Reduce the space between the image block and the text block */
+    gap: 1rem; /* Reduced from the original 2rem */
+    
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .hero-left .social-icons {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+.hero-left h1 {
+  font-size: 2.5rem;
+  /* FIX: Ensure margin below h1 is minimal or zero */
+  margin-bottom: 0.2rem; 
+}
+
+.hero-left .subtitle {
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  /* FIX: Ensure margin below subtitle is minimal */
+  margin-bottom: 0.5rem; 
+}
+
+  .hero-right .profile-img {
+    width: 200px;
+    height: 200px;
+    
+    /* FIX: Ensure there is minimal margin below the image */
+    margin-bottom: 0.5rem; /* Reduced margin to pull the text up */
+  }
+  
+  .hero-left {
+    /* FIX: Reduce top padding/margin on the text block */
+    margin-top: 0.5rem;
+  }
+}
+
+/* contact-links */
+.contact-links {
+  display: flex;
+  gap: 10px; /* space between icons */
+  margin-bottom: 20px;
+  justify-content: center;
+  
+}
+
+.contact-links a {
+  display: inline-block; /* prevents it from taking extra space */
+  width: auto;           /* fit content */
+  height: auto;
+  padding: 5px;          /* optional small clickable padding */
+  margin: 0 5px; 
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  transition: color 0.3s;
+  
+}
+
+.contact-links a:hover {
+  color: #4c3504;
+}
+
+.contact-links i {
+  font-size: 24px;       /* size of the icon */
+  pointer-events: none;  /* ensures click only works on <a>, not <i> */
+  
+}
+
+
+/*MOBILE COMPATIBILITY*/
+
+/* =========================================================
+   Responsive Additions (MOBILE & TABLET)
+========================================================= */
+
+/* Tablets and small laptops (≤ 768px) */
+@media (max-width: 768px) {
+
+  /* Navbar */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero-left h1 {
+    font-size: 2rem;
+  }
+
+  .hero-left .subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-left .description {
+    font-size: 0.95rem;
+  }
+
+  .hero-right .profile-img {
+    width: 180px;
+    height: 180px;
+  }
+
+  /* About Section */
+  .about__container {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .about__img {
+    width: 80%;
+  }
+
+  .about__info {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Skills Section */
+  .skills {
+    padding: 20px 10px;
+  }
+
+  .skills-category {
+    margin-bottom: 25px;
+  }
+
+  /* Timeline */
+  .timeline::after {
+    left: 10px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 40px;
+    margin-bottom: 30px;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+  }
+
+  .timeline-item::before {
+    left: 0;
+  }
+
+  /* Projects & Publications */
+  .project-item,
+  .publications-item {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .project-details,
+  .publications-details {
+    text-align: center;
+  }
+
+  .project-image img,
+  .publications-image img {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  /* Events Carousel */
+  .carousel-item {
+    flex: 0 0 80%;
+  }
+
+  /* Achievements */
+  .achievements-items {
+    width: 90%;
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  /* Contact */
+  .contact-links {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  footer {
+    font-size: 0.85rem;
+  }
+}
+
+/* Phones (≤ 480px) */
+@media (max-width: 480px) {
+
+  body {
+    padding-top: 70px;
+  }
+
+  .hero-left h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-left .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .btn,
+  .project-demo-btn,
+  .publications-demo-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .about__img {
+    width: 100%;
+  }
+
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .skills-category h3 {
+    font-size: 0.95rem;
+  }
+
+  .timeline-item {
+    padding-left: 30px;
+  }
+
+  .carousel-item {
+    flex: 0 0 90%;
+  }
+
+  footer {
+    padding: 1rem;
+  }
+}
+
+/* =========================================================
+   Mobile Navbar Toggle (Hamburger)
+========================================================= */
+
+/* Hide hamburger on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #000;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Show hamburger and make nav collapsible on mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 10px 20px;
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   Navbar Improvements (Dark/Light + Mobile)
+========================================================= */
+
+/* Logo smaller */
+.logo img {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Theme toggle button */
+.theme-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  color: var(--navbar-text, #000);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.theme-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Hamburger icon styling */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  margin-left: auto;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Responsive Navbar for mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    color: var(--navbar-text, #000);
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: var(--bg-color, #fff);
+    padding: 15px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 10px 20px;
+    text-align: left;
+    font-size: 1rem;
+    color: var(--text-color, #000);
+  }
+
+  .theme-btn {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+/* =========================================================
+   Dark Mode Styling
+========================================================= */
+
+body.dark-mode {
+  --bg-color: #0e0e0e;
+  --text-color: #f0f0f0;
+  --navbar-bg: #1a1a1a;
+  --navbar-text: #f0f0f0;
+}
+
+body.dark-mode .theme-btn {
+  color: #f0f0f0;
+}
+
+body.dark-mode .hamburger span {
+  background: #f0f0f0;
+}
+
+/* =========================================================
+   Responsive Additions (MOBILE & TABLET)
+========================================================= */
+
+@media (max-width: 768px) {
+  /* ... other mobile styles ... */
+  
+  /* Make the main navbar flexible and align items correctly */
+  .navbar {
+    /* Ensures the logo, nav-right-icons, and nav-links are separated */
+    align-items: flex-start; 
+  }
+  
+  /* New container for hamburger and theme toggle */
+  .nav-right-icons {
+    /* Use Flexbox to put the two icons side-by-side */
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between the hamburger and theme toggle */
+    
+    /* Position the container to the top right */
+    position: absolute;
+    top: 50%; /* Center vertically with respect to the navbar height */
+    right: 5%; /* Slight padding from the edge */
+    transform: translateY(-50%); /* Adjust for accurate vertical center */
+  }
+
+  /* Ensure the theme button and hamburger are NOT positioned absolutely elsewhere */
+  .theme-btn {
+    position: static; /* Override any absolute positioning */
+    margin: 0;
+  }
+  
+  .hamburger {
+    display: flex; /* Ensure hamburger is visible in the container */
+  }
+  
+  /* ... rest of your mobile styles ... */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+/* --- ADD THESE NEW RULES FOR PC LAYOUT --- */
+.logo {
+  order: 1; /* Puts logo first (left) */
+}
+
+.nav-links {
+  order: 2; /* Puts links second (middle) */
+  /* ... existing styles ... */
+}
+
+/* Puts the combined icon block third (right) */
+.nav-right-icons {
+  display: flex; /* Always display as flex to keep the two items together */
+  align-items: center;
+  gap: 1.5rem; /* Match the gap of nav-links */
+  order: 3; 
+}
+/* --- END OF NEW RULES --- */
+
+@media (max-width: 768px) {
+  /* ... existing mobile styles ... */
+
+  /* Force the navbar items to stack and align correctly */
+  .navbar {
+    flex-direction: row; /* Keep elements side-by-side (Logo | Icons) */
+    align-items: center;
+    padding: 1rem 0;
+  }
+  
+  /* Pushes the icons to the far right */
+  .nav-right-icons {
+    order: 3; 
+    margin-left: auto; /* Pushes this element to the far right */
+    position: static;  /* Ensure no absolute positioning interferes */
+    transform: none;
+    gap: 15px;
+  }
+  
+  /* Hide the nav-links initially */
+  .nav-links {
+    /* Retain existing styles for the collapsible menu */
+    display: none; 
+    /* ... other styles ... */
+  }
+
+  /* Ensure only the hamburger is visible when the menu is active */
+  .hamburger {
+    display: flex; 
+  }
+
+  /* Ensure theme button is not treated as absolute */
+  .theme-btn {
+    position: static; 
+  }
+
+  /* Inside @media (max-width: 768px) */
+
+/* Timeline container: Needs no extra left padding on mobile */
+.timeline {
+    padding: 0; 
+}
+
+/* 1. Fix the Central Vertical Line */
+.timeline::after {
+    /* Correctly position the line at the far left */
+    left: 10px; 
+    /* The line needs to be repositioned correctly relative to the start of the container */
+    margin-left: 0; 
+}
+
+/* 2. Fix the Timeline Items (Containers) */
+.timeline-item {
+    /* Each item must take up 100% of the container width */
+    width: 100%; 
+    /* Add padding on the left to leave space for the line and circle */
+    padding-left: 40px; /* Space for the 10px line + 20px circle + 10px margin */
+    padding-right: 15px; /* Reduce right padding */
+    margin-bottom: 30px;
+}
+
+/* 3. Fix Left/Right Positioning */
+/* When on mobile, both 'left' and 'right' items stack on the left */
+.timeline-item.left,
+.timeline-item.right {
+    left: 0; /* Ensures both items start at the far left edge */
+}
+
+/* 4. Fix the Circles (Bullets) */
+.timeline-item::before {
+    /* Position the circle to align with the vertical line (at 10px) */
+    left: 0px; /* 0px left means the circle starts where the item padding starts */
+    /* Adjust its offset to center on the line if needed, or rely on padding */
+}
+
+/* Correct the circle position for the .left items */
+.timeline-item.left::before {
+    /* This rule must be removed or reset from its PC state (right: -10px;) */
+    right: auto;
+    left: 0px; 
+}
+
+/* Correct the circle position for the .right items */
+.timeline-item.right::before {
+    /* Reset from its PC state (left: -10px;) */
+    left: 0px;
+}
+}
+
